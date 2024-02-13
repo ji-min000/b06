@@ -27,3 +27,5 @@ sc_reset = sc_reset.sort_values(by="Quantity", ascending=True).head(20)
 
 # 환불비율 점수화 
 sc_reset['refund_score'] = round(sc_reset['Quantity']/68*10, 1)
+
+#===수정
