@@ -1,0 +1,18 @@
+# Customer ID와 Sub-Category의 연관분석
+arule = setup(data= df,transaction_id = 'Customer ID',
+                    item_id = 'Sub-Category')
+
+#모델 생성
+model1 = create_model()
+model1.head()
+
+#지지도(support),신뢰도(confidence),리프트(lift)를 나타내는 지표
+plot_model(model1)
+
+
+
+# mertric = lift를 넣어 모델2 생성
+model2=create_model(metric='lift')
+model2.head()
+
+plot_model(model2)
