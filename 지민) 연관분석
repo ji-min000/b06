@@ -2,6 +2,7 @@
 arule = setup(data= df,transaction_id = 'Customer ID',
                     item_id = 'Sub-Category')
 
+
 #모델 생성
 model1 = create_model()
 model1.head()
