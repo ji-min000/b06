@@ -1,19 +1,39 @@
-# Customer ID와 Sub-Category의 연관분석
-arule = setup(data= df,transaction_id = 'Customer ID',
-                    item_id = 'Sub-Category')
+#!pip install apyori
+#!pip install cufflinks
 
 
-#모델 생성
+import pandas as pd
+import numpy as np
+from apyori import apriori
+from pycaret.arules import *
+
+  
+#데이터 불러오기
+df=pd.read_csv('C:/Users/wlals/OneDrive/바탕 화면/data/US_202402091601.csv',encoding='ISO-8859-1')
+df.head(3)
+
+  
+#셋업하기  / Customer ID와 Sub-Category의 연관분석
+arule = setup(data= df,transaction_id = 'Customer ID',item_id = 'Sub-Category')
+
+  
+#모델 만들기
 model1 = create_model()
 model1.head()
 
+  
 #지지도(support),신뢰도(confidence),리프트(lift)를 나타내는 지표
 plot_model(model1)
 
+  
+#3D로 그래프 만들기 
+plot_model(model1, plot = '3d')
 
-
-# mertric = lift를 넣어 모델2 생성
+__________________________________________________
+#LIFT라는 기능을 넣은 model2 생성
 model2=create_model(metric='lift')
 model2.head()
 
 plot_model(model2)
+plot_model(model2, plot = '3d')  
+
